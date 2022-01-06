@@ -1,0 +1,602 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Lobster&family=Montserrat:wght@400;600&family=Nunito:wght@200;300;400;500&family=Open+Sans:wght@400;500;600&family=Poppins:wght@400;500;600&family=Public+Sans:wght@300;400&display=swap");
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  transition: all 0.2s linear;
+}
+
+$orange: #fd5421;
+$white: #fff;
+$black: #000;
+$light-color: #ccc;
+$bg-color: #1d0e15;
+$border: 0.1rem solid rgba(255, 255, 255, 0.2);
+
+@mixin gird($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin title-text($titleText) {
+  font-size: $titleText;
+  text-transform: capitalize;
+  color: $white;
+}
+
+@mixin praph-text($praphText) {
+  font-size: $praphText;
+  line-height: 2;
+  color: $light-color;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
+
+  // &::-webkit-scrollbar {
+  //   width: 1rem;
+  // }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $orange;
+  }
+}
+
+body {
+  background-color: $bg-color;
+}
+
+// Start Header
+.header {
+  padding: 3rem 1rem;
+  z-index: 1000;
+
+  &.active {
+    background: $white;
+    padding: 2rem 0;
+
+    .logo {
+      color: $black;
+    }
+
+    .nav a {
+      color: $black;
+    }
+
+    #menu-btn {
+      color: $black;
+    }
+  }
+
+  .logo {
+    font-size: 2.5rem;
+    color: $white;
+    font-weight: bolder;
+
+    span {
+      color: $orange;
+    }
+  }
+
+  .nav a {
+    font-size: 2rem;
+    color: $white;
+    margin-left: 2rem;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  #menu-btn {
+    color: $white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
+  }
+}
+// End Header
+
+// Start Home Section
+.home {
+  background-image: url(/images/home-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  span {
+    font-size: 2.5rem;
+    color: $orange;
+  }
+
+  h3 {
+    @include title-text(5rem);
+  }
+}
+
+section {
+  padding: 3rem 1rem;
+}
+
+.link-btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: $orange;
+  color: $white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+
+  &:hover {
+    background: $white;
+    color: $orange;
+  }
+}
+// End Home Section
+
+// Start about section
+.about {
+  span {
+    color: $orange;
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    @include title-text(2.5rem);
+    padding-top: 1rem;
+  }
+
+  p {
+    @include praph-text(1.5rem);
+    padding: 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      @include praph-text(1.5rem);
+      padding-top: 0.5rem;
+
+      i {
+        padding-right: 1rem;
+        color: $orange;
+      }
+    }
+  }
+}
+// End about section
+
+// Start Counter Section
+.counter {
+  background-image: url(/images/counter-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .box-container {
+    @include gird(25rem);
+  }
+
+  .box {
+    text-align: center;
+
+    h3 {
+      font-size: 4rem;
+      color: $orange;
+    }
+
+    p {
+      @include title-text(2rem);
+    }
+  }
+}
+// End Counter Section
+
+// Start Courses Section
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  span {
+    font-size: 2.5rem;
+    color: $orange;
+  }
+
+  h3 {
+    @include title-text(3.5rem);
+  }
+}
+
+.courses {
+  .box-container {
+    @include gird(30rem);
+
+    .box {
+      border: $border;
+
+      &:hover .image img {
+        transform: scale(1.1);
+      }
+
+      .image {
+        height: 25rem;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          span {
+            @include title-text(1.7rem);
+            i {
+              color: $orange;
+              padding-right: 1rem;
+            }
+          }
+        }
+      }
+      h3 {
+        @include title-text(2.3rem);
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+// End Courses Section
+
+// Start Pricing  Section
+.pricing {
+  .box-container {
+    @include gird(29rem);
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+
+    .box {
+      padding: 2rem;
+      background: $bg-color;
+      border: $border;
+      text-align: center;
+      border-radius: 0.5rem;
+
+      &:nth-child(2) {
+        transform: scale(1.2);
+      }
+
+      h3 {
+        @include title-text(2rem);
+        padding-top: 1rem;
+      }
+
+      .price {
+        @include title-text(6rem);
+        font-weight: bold;
+        padding: 1rem 0;
+
+        span {
+          font-size: 2rem;
+          font-weight: normal;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding-top: 1rem;
+
+        li {
+          @include praph-text(1.5rem);
+          padding-top: 0.5rem;
+
+          i {
+            padding-right: 1rem;
+            color: $orange;
+
+            &.fa-times {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// End Pricing  Section
+
+// Start join Section
+.join {
+  span {
+    font-size: 2.5rem;
+    color: $orange;
+  }
+
+  h3 {
+    @include title-text(2.7rem);
+    padding-top: 1rem;
+  }
+
+  p {
+    @include praph-text(1.5rem);
+  }
+}
+// End join Section
+
+// Start Team Seciont
+.team {
+  .box-container {
+    @include gird(30rem);
+
+    .box {
+      height: 50rem;
+      overflow: hidden;
+      position: relative;
+
+      &:hover {
+        .content {
+          left: -100%;
+        }
+
+        .share {
+          left: 0%;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: $white;
+        padding: 1rem 2rem;
+
+        span {
+          font-size: 1.7rem;
+          color: $orange;
+        }
+
+        h3 {
+          font-size: 2rem;
+          color: $black;
+        }
+      }
+
+      .share {
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        background: $white;
+        padding: 1.5rem 1rem;
+
+        a {
+          font-size: 2rem;
+          color: $black;
+          margin: 0 1rem;
+
+          &:hover {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+}
+// End Team Seciont
+
+// Start Blog Section
+.blogs {
+  .box-container {
+    @include gird(30rem);
+
+    .box {
+      border: $border;
+
+      .image {
+        height: 25rem;
+        overflow: hidden;
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        padding: 2rem;
+
+        a {
+          @include title-text(2.5rem);
+
+          &:hover {
+            color: $orange;
+          }
+        }
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: 2rem;
+          margin-top: 1rem;
+          border-top: $border;
+
+          span {
+            @include title-text(1.5rem);
+
+            i {
+              color: $orange;
+              padding-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// End Blog Section
+
+// Start Footer Section
+.footer {
+  background-image: url(/images/footer-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .box-container {
+    @include gird(25rem);
+
+    .box {
+      h3 {
+        @include title-text(2rem);
+        padding: 1rem 0;
+      }
+
+      a {
+        display: block;
+        @include praph-text(1.6rem);
+
+        i {
+          padding-right: 0.6rem;
+          color: $orange;
+        }
+
+        &:hover {
+          color: $orange;
+
+          i {
+            padding-right: 1.5rem;
+          }
+        }
+      }
+
+      p {
+        @include title-text(1.6rem);
+      }
+
+      .email {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 1.6rem;
+        color: $black;
+        border: $border;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .credit{
+    text-align: center;
+    @include title-text(1.7rem);
+    padding-top: 3rem;
+    margin-top:2rem;
+    border-top: $border;
+
+    span{
+      color: $orange;
+    }
+  }
+}
+// End Footer Section
+
+// Start Media
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .home {
+    h3 {
+      font-size: 3rem;
+    }
+  }
+
+  .pricing {
+    .box-container {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      .box {
+        &:nth-child(2) {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem;
+
+    &.active {
+      padding: 2rem;
+    }
+    #menu-btn {
+      display: inline-block;
+    }
+    .nav {
+      position: absolute;
+      background-color: $white;
+      top: 99%;
+      left: 0;
+      right: 0;
+      padding: 1rem 0;
+      flex-flow: column;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      a {
+        color: $black;
+        margin: 1rem 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+// End Media
